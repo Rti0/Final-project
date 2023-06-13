@@ -31,6 +31,8 @@ public class Services {
     private Integer price;
 
 
+    private Integer designerId;
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @JsonIgnore

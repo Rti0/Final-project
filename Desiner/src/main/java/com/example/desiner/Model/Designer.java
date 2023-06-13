@@ -42,7 +42,7 @@ public class Designer {
     @OneToOne
     @MapsId
     @JsonIgnore
-    private User user;
+    private MyUser myUser;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "designer")
     private Set<DesignerBusiness>designerBusinesses;

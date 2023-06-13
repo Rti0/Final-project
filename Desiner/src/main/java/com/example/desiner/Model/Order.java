@@ -23,6 +23,8 @@ public class Order {
 
 
 
+
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @JsonIgnore
@@ -36,9 +38,9 @@ public class Order {
     private Customer customer;
 
 
-
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "order")
-    @PrimaryKeyJoinColumn
-    private RateOrder rateOrder;
+//
+//    @OneToOne(cascade = CascadeType.ALL,mappedBy = "order")
+//    @PrimaryKeyJoinColumn
+//    private RateOrder rateOrder;
 
 }
