@@ -8,11 +8,11 @@ import lombok.Data;
 public class CustomerDTO {
 
 
-    private Integer user_id;
+//     private Integer user_id;
 
-    private Integer customer_id;
+//     private Integer customer_id;
 
-    private Integer designer_id;
+//     private Integer designer_id;
 
 
 }
