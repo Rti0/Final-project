@@ -21,17 +21,23 @@ public class Order {
     @Column(columnDefinition = "int not null ")
     private Integer totalPrice;
 
+
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @JsonIgnore
     private Designer designer;
+
+
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @JsonIgnore
     private Customer customer;
 
-@OneToOne(cascade = CascadeType.ALL,mappedBy = "order")
+
+
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "order")
     @PrimaryKeyJoinColumn
     private RateOrder rateOrder;
 

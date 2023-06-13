@@ -1,5 +1,6 @@
 package com.example.desiner.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
@@ -22,7 +23,7 @@ public class Designer {
     private String name;
 
 
-    @Email(message = "Invalid Email",regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")
+    @Email
     @Column(columnDefinition = "varchar(50) not null ")
     private String email;
 
@@ -38,8 +39,9 @@ public class Designer {
     private Set<Services>servicesSet;
 
 
-    @OneToOne(cascade = CascadeType.ALL,mappedBy ="designer" )
-    @PrimaryKeyJoinColumn
+    @OneToOne
+    @MapsId
+    @JsonIgnore
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "designer")

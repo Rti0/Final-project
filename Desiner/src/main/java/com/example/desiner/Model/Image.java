@@ -18,6 +18,8 @@ public class Image {
     @Column(columnDefinition = "varchar(20) not null")
     private String url;
 
+
+
     @OneToOne
     @JsonIgnore
     @MapsId

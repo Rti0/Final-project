@@ -2,15 +2,15 @@ package com.example.desiner.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.Pattern;
+import lombok.*;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Table(name = "user")
+@Setter
+@Getter
+//@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +19,8 @@ public class User {
     @Column(columnDefinition = "varchar(20) unique not null ")
     private String username;
 
+
+    @Pattern(regexp = "^(?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$")
     @Column(columnDefinition = "varchar(20) unique not null ")
     private String password;
 
@@ -27,15 +29,13 @@ public class User {
     private String role;
 
 
-@OneToOne
-    @JsonIgnore
-    @MapsId
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "user")
+    @PrimaryKeyJoinColumn
     private Customer customer;
 
 
-@OneToOne
-    @JsonIgnore
-    @MapsId
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "user")
+    @PrimaryKeyJoinColumn
     private Designer designer;
 
 }

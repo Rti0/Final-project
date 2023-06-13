@@ -2,6 +2,8 @@ package com.example.desiner.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,9 +22,11 @@ public class RateOrder {
 
     private Integer OrderId;
 
+    @Min(value = 1)
+    @Max(value = 5)
+    @Column(columnDefinition = "int not null ")
+    private Integer rating;
 
-    @Column(columnDefinition = "varchar(5)  not null ")
-    private String rating;
 
     @OneToOne
     @JsonIgnore

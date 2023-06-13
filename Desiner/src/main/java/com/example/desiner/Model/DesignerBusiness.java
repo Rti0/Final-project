@@ -22,10 +22,14 @@ public class DesignerBusiness {
     @Column(columnDefinition = "varchar(200) not null ")
     private String body;
 
+
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @JsonIgnore
     private Designer designer;
+
+
 
     @OneToOne(cascade = CascadeType.ALL,mappedBy = "designerBusiness")
     @PrimaryKeyJoinColumn
