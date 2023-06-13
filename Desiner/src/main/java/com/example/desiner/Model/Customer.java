@@ -21,7 +21,7 @@ public class Customer {
     private String name;
 
 
-    @Email
+    @Email(message = "Invalid Email",regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")
     @Column(columnDefinition = "varchar(50) not null ")
     private String email;
 
